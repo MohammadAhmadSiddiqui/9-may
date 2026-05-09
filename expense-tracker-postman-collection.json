@@ -1,0 +1,142 @@
+{
+  "info": {
+    "name": "Expense Tracker API",
+    "_postman_id": "f7b9b8b1-1234-4a12-9abc-expense-tracker",
+    "description": "Postman collection for FastAPI Expense Tracker project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Root Endpoint",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Lunch\",\n  \"amount\": 150,\n  \"category\": \"food\",\n  \"description\": \"Team lunch\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses"]
+        }
+      }
+    },
+    {
+      "name": "Get All Expenses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/expenses",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses"]
+        }
+      }
+    },
+    {
+      "name": "Get Expense By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/expenses/{{expense_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses", "{{expense_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Expense",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Lunch\",\n  \"amount\": 200\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/expenses/{{expense_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses", "{{expense_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Expense",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/expenses/{{expense_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses", "{{expense_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Upload CSV",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "expenses.csv"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8000/expenses/upload-csv",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["expenses", "upload-csv"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "expense_id",
+      "value": "507f1f77bcf86cd799439011"
+    }
+  ]
+}
